@@ -1,6 +1,8 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	// @ts-ignore
+import { page } from '$app/stores';
+	// @ts-ignore
+import logo from './svelte-logo.svg';
 </script>
 
 <header>
@@ -21,6 +23,9 @@
 			</li>
 			<li class:active={$page.url.pathname === '/todos'}>
 				<a sveltekit:prefetch href="/todos">Todos</a>
+			</li>
+			<li class:active={$page.url.pathname === '/contact'}>
+				<a sveltekit:prefetch href="/contact">Contact</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">

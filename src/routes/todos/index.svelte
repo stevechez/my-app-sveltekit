@@ -17,11 +17,7 @@
 		class="new"
 		action="/todos"
 		method="post"
-		use:enhance={{
-			result: async ({ form }) => {
-				form.reset();
-			}
-		}}
+		
 	>
 		<input name="text" aria-label="Add todo" placeholder="+ tap to add a todo" />
 	</form>
@@ -36,11 +32,7 @@
 			<form
 				action="/todos?_method=PATCH"
 				method="post"
-				use:enhance={{
-					pending: ({ data }) => {
-						todo.done = !!data.get('done');
-					}
-				}}
+				
 			>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<input type="hidden" name="done" value={todo.done ? '' : 'true'} />
@@ -56,9 +48,7 @@
 			<form
 				action="/todos?_method=DELETE"
 				method="post"
-				use:enhance={{
-					pending: () => (todo.pending_delete = true)
-				}}
+				
 			>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<button class="delete" aria-label="Delete todo" disabled={todo.pending_delete} />
